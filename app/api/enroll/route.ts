@@ -1,6 +1,5 @@
-// @ts-ignore
-import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
+// @ts-ignore
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
@@ -8,7 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or school's SMTP
+      service: 'gmail', 
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
