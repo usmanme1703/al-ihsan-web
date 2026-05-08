@@ -1,3 +1,5 @@
+// @ts-ignore
+import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
