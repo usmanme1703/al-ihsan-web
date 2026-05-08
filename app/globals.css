@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  /* Al-Ihsan Brand Palette */
+  --color-ihsan-green: #006837;
+  --color-ihsan-gold: #D4AF37;
+  --color-ihsan-dark: #1A1A1A;
+  --color-ihsan-light: #F9FAFB;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
