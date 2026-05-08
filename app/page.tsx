@@ -1,65 +1,148 @@
-import Image from "next/image";
+import { SCHOOL_DATA } from "@/constants";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-ihsan-dark text-white py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+              Building a Generation of Muslims Achieving <span className="text-ihsan-gold">Excellence</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+              Integrating high-quality Western education with deep-rooted Islamic values. 
+              Join a community dedicated to perfection in character and academics.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/apply" className="bg-ihsan-green hover:bg-ihsan-gold text-white px-8 py-4 rounded-xl font-bold transition-all">
+                Enroll Your Child
+              </Link>
+              <Link href="/programs" className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all">
+                Explore Programs
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* 2. STATS BAR */}
+      <section className="bg-white py-12 border-b">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { label: "Accredited Centre", val: "NBAIS" },
+            { label: "Student Ratio", val: "12:1" },
+            { label: "Islamic Courses", val: "5+" },
+            { label: "Years of Legacy", val: "4+" },
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <p className="text-2xl font-bold text-ihsan-green">{stat.val}</p>
+              <p className="text-xs uppercase tracking-widest text-gray-500 mt-1">{stat.label}</p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* CORE VALUES (On Landing Page) */}
+      <section className="py-20 bg-ihsan-light">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+          {[
+            { t: "Faith", d: "Spiritual growth as the bedrock of learning." },
+            { t: "Excellence", d: "Striving for Ihsan in every assignment." },
+            { t: "Integrity", d: "Building honest and reliable leaders." }
+          ].map(v => (
+            <div key={v.t} className="bg-white p-8 rounded-3xl text-center">
+              <h3 className="text-xl font-bold text-ihsan-green mb-2 uppercase tracking-tighter">{v.t}</h3>
+              <p className="text-gray-500 text-sm">{v.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. DUAL-TRACK PROGRAMS */}
+      <section className="py-20 bg-ihsan-light">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-ihsan-dark mb-4 text-center inline-block border-b-4 border-ihsan-gold pb-2">
+              Our Educational Tracks
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Islamic Academy */}
+            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-ihsan-gold/10 rounded-full flex items-center justify-center mb-6">
+                <span className="text-2xl">🌙</span>
+              </div>
+              <h3 className="text-2xl font-bold text-ihsan-green mb-4">Islamic Academy</h3>
+              <ul className="space-y-3 text-gray-600 mb-8">
+                <li>• Hifz Program (Quran Memorization)</li>
+                <li>• Islamiyah for Children</li>
+                <li>• Adult Islamic Education (Men & Women)</li>
+                <li>• Arabic & Tajweed Classes</li>
+              </ul>
+              <Link href="/programs" className="text-ihsan-green font-bold hover:text-ihsan-gold underline underline-offset-4">
+                View Islamic Tracks
+              </Link>
+            </div>
+
+            {/* General Education */}
+            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-ihsan-green/10 rounded-full flex items-center justify-center mb-6">
+                <span className="text-2xl">📚</span>
+              </div>
+              <h3 className="text-2xl font-bold text-ihsan-green mb-4">General Education</h3>
+              <ul className="space-y-3 text-gray-600 mb-8">
+                <li>• Kindergarten & Primary</li>
+                <li>• Secondary Education</li>
+                <li>• Post-Secondary Prep</li>
+                <li>• STEM & Humanities Focus</li>
+              </ul>
+              <Link href="/programs" className="text-ihsan-green font-bold hover:text-ihsan-gold underline underline-offset-4">
+                View Academic Tracks
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. DIRECT CONTACT SECTION */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-ihsan-green rounded-[3rem] p-10 md:p-20 text-white flex flex-col lg:flex-row justify-between items-center gap-12">
+            <div className="max-w-md text-center lg:text-left">
+              <h2 className="text-4xl font-bold mb-6">Get in Touch</h2>
+              <p className="text-gray-200 text-lg">
+                Have questions about admissions or our curriculum? Reach out to our team directly.
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4 w-full lg:w-auto">
+              {/* Phones */}
+              {SCHOOL_DATA.phones.map((phone) => (
+                <a 
+                  key={phone} 
+                  href={`tel:${phone}`} 
+                  className="bg-white/10 hover:bg-white/20 border border-white/10 p-5 rounded-2xl flex items-center gap-4 transition-all"
+                >
+                  <span className="text-2xl text-ihsan-gold">📞</span>
+                  <span className="font-bold text-lg">{phone}</span>
+                </a>
+              ))}
+              
+              {/* Email */}
+              <a 
+                href={`mailto:${SCHOOL_DATA.email}`} 
+                className="bg-white/10 hover:bg-white/20 border border-white/10 p-5 rounded-2xl flex items-center gap-4 transition-all"
+              >
+                <span className="text-2xl text-ihsan-gold">✉️</span>
+                <span className="font-bold text-lg lowercase">{SCHOOL_DATA.email}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
