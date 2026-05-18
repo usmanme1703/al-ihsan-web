@@ -9,16 +9,22 @@ export default function AboutPage() {
       </header>
 
       <section className="max-w-7xl mx-auto px-6 py-20 space-y-24">
+        
         {/* History */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-ihsan-green mb-6">Our History</h2>
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Al-Ihsan Noble Scholars was founded to create a sanctuary of learning where children and adults can master Western academics without compromising their Islamic identity. In just a few years, we have become a premier center for NBAIS accredited studies in Osun State.
-            </p>
+          <div className="order-2 md:order-1">
+            <img 
+              src="/history.jpg" 
+              alt="Al-Ihsan History" 
+              className="rounded-[3rem] shadow-2xl border-8 border-ihsan-light w-full h-[400px] object-cover" 
+            />
           </div>
-          <div className="bg-ihsan-light p-12 rounded-[3rem] border-2 border-dashed border-gray-200 text-center italic text-gray-400">
-            [Historical Photo Placeholder]
+          <div className="order-1 md:order-2 space-y-6">
+            <h2 className="text-3xl font-bold text-ihsan-green">Our History</h2>
+            <p className="text-gray-700 leading-relaxed text-lg">
+              Founded with a vision of holistic education, Al-Ihsan Noble Scholars has grown from a humble 
+              beginning into a premier institution for NBAIS accredited studies...
+            </p>
           </div>
         </div>
 

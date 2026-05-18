@@ -5,22 +5,36 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b sticky top-0 z-50 h-20 flex items-center">
       <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-        {/* Clickable Brand Name back to Home */}
-        <Link href="/" className="font-bold text-ihsan-green text-xl uppercase tracking-tighter hover:opacity-80 transition">
-          Al-Ihsan <span className="text-ihsan-gold">Scholars</span>
-        </Link>
         
-        <div className="hidden lg:flex gap-6 font-medium text-gray-700 text-sm">
+        {/* Logo + Name Group */}
+        <Link href="/" className="flex items-center gap-4 hover:opacity-90 transition">
+          <img 
+            src="/logo.jpg" 
+            alt="Al-Ihsan Logo" 
+            className="h-12 w-auto object-contain rounded-lg" 
+          />
+          <div className="flex flex-col">
+            <span className="font-bold text-ihsan-green text-lg leading-tight uppercase tracking-tighter">
+              Al-Ihsan
+            </span>
+            <span className="font-bold text-ihsan-gold text-xs leading-tight uppercase tracking-widest">
+              Scholars
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex gap-6 font-medium text-gray-700 text-sm items-center">
           <Link href="/about" className="hover:text-ihsan-green transition">About</Link>
           <Link href="/programs" className="hover:text-ihsan-green transition">Programmes</Link>
-          <Link href="/news" className="hover:text-ihsan-green transition">News & Blog</Link>
+          <Link href="/news" className="hover:text-ihsan-green transition">News</Link>
           <Link href="/gallery" className="hover:text-ihsan-green transition">Media</Link>
           <Link href="/contact" className="hover:text-ihsan-green transition">Contact</Link>
           <Link 
             href={SCHOOL_DATA.portalUrl} 
             className="bg-ihsan-green text-white px-5 py-2 rounded-xl hover:bg-ihsan-gold transition shadow-md shadow-green-900/10"
           >
-            Portal
+            Portal Login
           </Link>
         </div>
       </div>

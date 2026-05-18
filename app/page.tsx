@@ -4,25 +4,25 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      {/* 1. HERO SECTION */}
-      <section className="relative bg-ihsan-dark text-white py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Building a Generation of Muslims Achieving <span className="text-ihsan-gold">Excellence</span>
+
+      <section className="relative bg-ihsan-dark text-white pt-24 pb-32 px-6 overflow-hidden">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src="/hero.jpg" className="w-full h-full object-cover opacity-30" alt="" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ihsan-green/80 to-transparent"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-1 gap-16 items-center">
+          <div>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-9">
+              Building a Generation of Muslim Achiving <span className="text-ihsan-gold">Excellence</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
-              Integrating high-quality Western education with deep-rooted Islamic values. 
-              Join a community dedicated to perfection in character and academics.
+            <p className="text-xl text-gray-200 mb-10 leading-relaxed italic font-serif">
+              Integrating high-quality Western education with deep-roted Islamic values. Join a community dedicated to perfection in character and academics.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/apply" className="bg-ihsan-green hover:bg-ihsan-gold text-white px-8 py-4 rounded-xl font-bold transition-all">
-                Enroll Your Child
-              </Link>
-              <Link href="/programs" className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all">
-                Explore Programs
-              </Link>
-            </div>
+            <Link href="/apply" className="bg-ihsan-green hover:bg-ihsan-gold text-white px-10 py-5 rounded-2xl font-bold transition-all text-lg inline-block">
+              Enroll Now
+            </Link>
           </div>
         </div>
       </section>
