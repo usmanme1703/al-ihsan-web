@@ -1,10 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function HomeGallery() {
   const [startIndex, setStartIndex] = useState(0);
-  const totalInFolder = 12; // Update this based on your gallery folder count
+  const totalInFolder = 82; // Update this based on your gallery folder count
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,19 +17,23 @@ export default function HomeGallery() {
   const displayImages = Array.from({ length: 6 }, (_, i) => ((startIndex + i) % totalInFolder) + 1);
 
   return (
-    <section className="py-20 bg-white px-6">
+    <section className="py-24 bg-white px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-wrap justify-between items-end gap-6 mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-ihsan-green">Campus Life</h2>
-            <p className="text-gray-500 mt-2">Moments of excellence in action.</p>
+            <p className="text-ihsan-gold font-bold text-xs uppercase tracking-[0.25em] mb-4">Around Campus</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-ihsan-dark">Campus Life</h2>
+            <p className="text-ihsan-dark/60 mt-2">Moments of excellence in action.</p>
           </div>
-          <Link href="/gallery" className="text-ihsan-gold font-bold hover:underline">See All Photos →</Link>
+          <Link href="/gallery" className="text-ihsan-green font-bold hover:text-ihsan-gold transition inline-flex items-center gap-2 group">
+            See All Photos
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {displayImages.map((num) => (
-            <div key={num} className="aspect-square rounded-[2rem] overflow-hidden bg-gray-100 border transition-opacity duration-1000">
+            <div key={num} className="aspect-square rounded-[2rem] overflow-hidden bg-ihsan-cream border border-ihsan-cream-alt transition-opacity duration-1000">
               <img src={`/gallery/${num}.jpg`} className="w-full h-full object-cover" alt="Gallery" />
             </div>
           ))}

@@ -2,13 +2,25 @@
 
 @theme {
   /* Al-Ihsan Brand Palette */
-  --color-ihsan-green: #006837;
-  --color-ihsan-gold: #D4AF37;
-  --color-ihsan-dark: #1A1A1A;
-  --color-ihsan-light: #F9FAFB;
+  --color-ihsan-cream: #F6F1E3;
+  --color-ihsan-cream-alt: #EFE6CF;
+  --color-ihsan-green: #16392B;
+  --color-ihsan-green-soft: #234C3B;
+  --color-ihsan-green-dark: #0E251B;
+  --color-ihsan-gold: #C6A455;
+  --color-ihsan-dark: #1B211D;
+  --color-ihsan-light: #FFFFFF;
+
+  /* Fonts (populated via next/font CSS vars in layout.tsx) */
+  --font-serif: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
+}
+
+body {
+  background-color: var(--color-ihsan-cream);
 }

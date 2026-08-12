@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Fraunces, Inter } from "next/font/google";
 import "./global.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const displayFont = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+});
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
   title: "Al-Ihsan Noble Scholars | Excellence in Education",
@@ -15,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased font-sans">
+      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased font-sans bg-ihsan-cream text-ihsan-dark`}>
         <Navbar />
         {children}
         <Footer />
