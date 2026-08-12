@@ -34,7 +34,6 @@ export default function Footer() {
             <h4 className="text-ihsan-gold font-bold text-xs uppercase tracking-[0.2em] mb-8">Quick Access</h4>
             <ul className="space-y-4 text-sm text-white/60">
               <li><Link href="/apply" className="hover:text-white transition">Enrollment Form</Link></li>
-              <li><Link href={SCHOOL_DATA.portalUrl} className="hover:text-white transition">Student Portal</Link></li>
               <li><Link href="/contact" className="hover:text-white transition">Contact Us</Link></li>
             </ul>
           </div>

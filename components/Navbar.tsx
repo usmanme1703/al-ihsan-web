@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { SCHOOL_DATA } from '@/constants';
 
 const LINKS = [
   { href: '/about', label: 'About' },
@@ -39,10 +38,10 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href={SCHOOL_DATA.portalUrl}
+            href="/apply"
             className="bg-ihsan-green text-white px-6 py-2.5 rounded-full hover:bg-ihsan-green-soft transition font-semibold tracking-wide text-sm"
           >
-            Portal Login
+            Apply Now
           </Link>
         </div>
       </div>
