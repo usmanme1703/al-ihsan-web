@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import "./global.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FlyerPopup from "@/components/FlyerPopup";
 
 const displayFont = Fraunces({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <FlyerPopup />
       </body>
     </html>
   );

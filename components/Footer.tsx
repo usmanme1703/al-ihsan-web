@@ -23,6 +23,7 @@ export default function Footer() {
             <h4 className="text-ihsan-gold font-bold text-xs uppercase tracking-[0.2em] mb-8">Institutional</h4>
             <ul className="space-y-4 text-sm text-white/60">
               <li><Link href="/about" className="hover:text-white transition">About Our History</Link></li>
+              <li><Link href="/about#anthem" className="hover:text-white transition">School Anthem</Link></li>
               <li><Link href="/programs" className="hover:text-white transition">Our Programmes</Link></li>
               <li><Link href="/news" className="hover:text-white transition">News & Blog</Link></li>
               <li><Link href="/gallery" className="hover:text-white transition">Media Gallery</Link></li>

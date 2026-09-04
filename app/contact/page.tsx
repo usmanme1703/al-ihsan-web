@@ -1,6 +1,36 @@
+'use client';
+
+import { useState } from 'react';
 import { SCHOOL_DATA } from "@/constants";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('loading');
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        e.currentTarget.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <main className="min-h-screen bg-ihsan-light pb-20">
       <header className="bg-ihsan-green py-20 text-center text-white px-6">
@@ -22,12 +52,31 @@ export default function ContactPage() {
 
         <div className="lg:col-span-2 bg-white p-10 rounded-[3rem] shadow-sm">
           <h2 className="text-2xl font-bold text-ihsan-green mb-8">Send a Message</h2>
-          <form className="grid md:grid-cols-2 gap-6">
-            <input type="text" placeholder="Your Name" className="p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green" />
-            <input type="email" placeholder="Email Address" className="p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green" />
-            <textarea rows={4} placeholder="How can we help you?" className="md:col-span-2 p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green"></textarea>
-            <button className="bg-ihsan-green text-white py-4 px-10 rounded-2xl font-bold hover:bg-ihsan-gold transition-all">Send Inquiry</button>
-          </form>
+
+          {status === 'success' ? (
+            <div className="text-center py-10">
+              <div className="w-16 h-16 bg-ihsan-green text-white rounded-full flex items-center justify-center text-3xl mx-auto mb-6">✓</div>
+              <h3 className="text-xl font-bold text-ihsan-green mb-2">Message Sent!</h3>
+              <p className="text-gray-500 mb-6">Thank you for reaching out. We&apos;ll get back to you shortly.</p>
+              <button onClick={() => setStatus('idle')} className="text-ihsan-gold font-bold">Send another message</button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+              <input name="name" required type="text" placeholder="Your Name" className="p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green" />
+              <input name="email" required type="email" placeholder="Email Address" className="p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green" />
+              <textarea name="message" required rows={4} placeholder="How can we help you?" className="md:col-span-2 p-4 rounded-2xl bg-ihsan-light outline-none focus:ring-2 focus:ring-ihsan-green"></textarea>
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="md:col-span-2 bg-ihsan-green text-white py-4 px-10 rounded-2xl font-bold hover:bg-ihsan-gold transition-all disabled:opacity-50"
+              >
+                {status === 'loading' ? 'Sending...' : 'Send Inquiry'}
+              </button>
+              {status === 'error' && (
+                <p className="md:col-span-2 text-red-500 text-center font-medium">Something went wrong. Please try calling us instead.</p>
+              )}
+            </form>
+          )}
         </div>
       </div>
     </main>

@@ -1,5 +1,5 @@
-import { SCHOOL_DATA } from "@/constants";
-import { Users, Sparkles, Building2, Quote } from "lucide-react";
+import { SCHOOL_DATA, SCHOOL_ANTHEM } from "@/constants";
+import { Users, Sparkles, Building2, Quote, Music } from "lucide-react";
 
 const PILLARS = [
   {
@@ -100,6 +100,52 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ANTHEM */}
+      <section id="anthem" className="py-24 bg-ihsan-green text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 relative">
+          <div className="text-center mb-14">
+            <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+              <Music className="text-ihsan-gold" size={24} />
+            </div>
+            <p className="text-ihsan-gold font-bold text-xs uppercase tracking-[0.25em] mb-4">Our Song of Pride</p>
+            <h2 className="font-serif text-3xl md:text-4xl mb-5">The School Anthem</h2>
+            <span className="block w-16 h-[3px] bg-ihsan-gold mx-auto" />
+          </div>
+
+          <div className="text-center mb-12">
+            {SCHOOL_ANTHEM.refrain.map((line) => (
+              <p key={line} className="font-serif italic text-2xl md:text-3xl text-ihsan-gold leading-snug">
+                {line}
+              </p>
+            ))}
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+            {SCHOOL_ANTHEM.verses.map((verse, i) => (
+              <div key={i} className="space-y-1.5">
+                {verse.map((line, j) => (
+                  <p key={j} className="text-white/80 leading-relaxed">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-14 pt-10 border-t border-white/10">
+            {SCHOOL_ANTHEM.refrain.map((line) => (
+              <p key={line} className="font-serif italic text-2xl md:text-3xl text-ihsan-gold leading-snug">
+                {line}
+              </p>
+            ))}
+          </div>
+
+          <p className="mt-14 text-white/60 text-center max-w-2xl mx-auto leading-relaxed italic">
+            {SCHOOL_ANTHEM.summary}
+          </p>
         </div>
       </section>
 
